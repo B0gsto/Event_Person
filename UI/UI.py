@@ -51,5 +51,11 @@ class SubMenu:
                        '2--Cauta evenimente'
             elif self.optiune == 3:
                 return ''
+            elif self.optiune == 4:
+                return '1--Lista de evenimente la care participă o persoană ordonat alfabetic după descriere, după dată\n' \
+                       '2--Persoane participante la cele mai multe evenimente\n' \
+                       '3--Primele 20% evenimente cu cei mai mulți participanți (descriere, număr participanți)'
+            else:
+                return 'Optiune invalida'
         except:
-            return "optiune invalida"
+            return "Optiune invalida"

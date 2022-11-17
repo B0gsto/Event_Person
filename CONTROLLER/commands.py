@@ -105,8 +105,8 @@ class Commands:
                     print('Optiune invalida')
             self.ctrl.cautare_eveniment(id)
         if self.op1 == 3:
-            print(3)
             idp = int(input('Id-ul persoanei adaugate: '))
             ide = int(input('Id-ul evenimentului la care se adauga persoana: '))
             self.ctrl.adaugare_persoana_eveniment(idp, ide)
-            # Todo: optiunea 3 +rapoarte aka op4
+        if self.op1 == 4:
+            pass
