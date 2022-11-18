@@ -132,6 +132,20 @@ class InMemoryRepoEvent:
         event.person_list.append(person)
         return event.person_list
 
+    def report_1(self):
+        '''
+        Lista de evenimente la care participă o persoană ordonat alfabetic
+        :return:none
+        '''
+        d = {}
+        for e in self.event_list:
+            e: Event
+            if len(e.person_list) == 1:
+                d[e.descriere] = e.person_list[0], e
+        d = dict(sorted(d.items()))
+        for i in d.items():
+            print(str(i[1][1]))
+
     def get_all(self):
         '''
         Printeaza toata lista

@@ -7,6 +7,7 @@ class Person:
         self.nume = nume
         self.adresa = adresa
         self.list1 = [nume, adresa]
+        self.no_events = 0
         Person.no_person += 1
         Person.auto_id += 1
 

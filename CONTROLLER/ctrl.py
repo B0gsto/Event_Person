@@ -41,7 +41,7 @@ class Ctrl:
     def show_list(self):
         self.repop.get_all_list()
 
-    def adaugare_persoana_eveniment(self, ide, idp):
+    def adaugare_persoana_eveniment(self, idp, ide):
         person_list = self.repop.person_list
         event_list = self.repoe.event_list
         for p in person_list:
@@ -65,5 +65,16 @@ class Ctrl:
                 return 0
             return 1
         except:
-            print('mda')
             return 0
+
+    def report_1(self):
+        print(self.repoe.report_1())
+
+    def report_2(self):
+        pass
+
+    def report_3(self):
+        pass
+
+    def report_4(self):
+        pass

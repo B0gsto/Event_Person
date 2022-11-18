@@ -108,5 +108,13 @@ class Commands:
             idp = int(input('Id-ul persoanei adaugate: '))
             ide = int(input('Id-ul evenimentului la care se adauga persoana: '))
             self.ctrl.adaugare_persoana_eveniment(idp, ide)
-        if self.op1 == 4:
-            pass
+        if self.op1 == 4 and self.op2 == 1:
+            self.ctrl.report_1()
+        if self.op1 == 4 and self.op2 == 2:
+            pass  # Todo
+        if self.op1 == 4 and self.op2 == 3:
+            pass  # Todo
+        if self.op1 == 4 and self.op2 == 4:
+            pass  # Todo
+        if self.op1 == 4 and self.op2 == 5:
+            pass  # Todo

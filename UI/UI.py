@@ -52,9 +52,10 @@ class SubMenu:
             elif self.optiune == 3:
                 return ''
             elif self.optiune == 4:
-                return '1--Lista de evenimente la care participă o persoană ordonat alfabetic după descriere, după dată\n' \
-                       '2--Persoane participante la cele mai multe evenimente\n' \
-                       '3--Primele 20% evenimente cu cei mai mulți participanți (descriere, număr participanți)'
+                return '1--Lista de evenimente la care participă o persoană ordonat după descriere\n' \
+                       '2--Lista de evenimente la care participă o persoană ordonat după data\n' \
+                       '3--Persoane participante la cele mai multe evenimente\n' \
+                       '4--Primele 20% evenimente cu cei mai mulți participanți (descriere, număr participanți)'
             else:
                 return 'Optiune invalida'
         except:
