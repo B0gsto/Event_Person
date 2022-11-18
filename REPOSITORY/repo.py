@@ -1,5 +1,6 @@
 from DOMAIN.person import *
 from DOMAIN.event import *
+from datetime import datetime
 
 
 class InMemoryRepoPerson:
@@ -144,6 +145,16 @@ class InMemoryRepoEvent:
                 d[e.descriere] = e.person_list[0], e
         d = dict(sorted(d.items()))
         for i in d.items():
+            print(str(i[1][1]))
+
+    def report_2(self):
+        d = {}
+        for e in self.event_list:
+            e: Event
+            if len(e.person_list) == 1:
+                d[e.data] = e.person_list[0], e
+        ordered_data = sorted(d.items(), key=lambda x: datetime.strptime(x[0], '%d.%m.%Y'))
+        for i in ordered_data:
             print(str(i[1][1]))
 
     def get_all(self):

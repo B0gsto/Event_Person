@@ -68,13 +68,13 @@ class Ctrl:
             return 0
 
     def report_1(self):
-        print(self.repoe.report_1())
+        self.repoe.report_1()
 
     def report_2(self):
-        pass
+        self.repoe.report_2()
 
     def report_3(self):
-        pass
+        self.repoe.report_3()
 
     def report_4(self):
-        pass
+        self.repoe.report_4()

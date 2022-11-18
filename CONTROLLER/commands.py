@@ -12,6 +12,7 @@ class Commands:
         Setarea submeniurilor
         :return: none
         '''
+        ctrl: Ctrl
         # Adaugare persoana
         if self.op1 == 1 and self.op2 == 1:
             nume = ''
@@ -111,10 +112,8 @@ class Commands:
         if self.op1 == 4 and self.op2 == 1:
             self.ctrl.report_1()
         if self.op1 == 4 and self.op2 == 2:
-            pass  # Todo
+            self.ctrl.report_2()
         if self.op1 == 4 and self.op2 == 3:
-            pass  # Todo
+            self.ctrl.report_3()
         if self.op1 == 4 and self.op2 == 4:
-            pass  # Todo
-        if self.op1 == 4 and self.op2 == 5:
-            pass  # Todo
+            self.ctrl.report_4()
