@@ -22,7 +22,8 @@ class Menu:
         return "1--Adaugă, șterge, modifică, lista de persoane, lista de evenimente " \
                "\n2--Căutare persoane, căutare evenimente " \
                "\n3--Înscriere persoană la eveniment." \
-               "\n4--Rapoarte"
+               "\n4--Rapoarte" \
+               "\n5--Random"
 
 
 class SubMenu:
@@ -56,6 +57,10 @@ class SubMenu:
                        '2--Lista de evenimente la care participă o persoană ordonat după data\n' \
                        '3--Persoane participante la cele mai multe evenimente\n' \
                        '4--Primele 20% evenimente cu cei mai mulți participanți (descriere, număr participanți)'
+            elif self.optiune == 5:
+                return '1--Random person\n' \
+                       '2--Random event'
+
             else:
                 return 'Optiune invalida'
         except:

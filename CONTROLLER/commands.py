@@ -117,3 +117,7 @@ class Commands:
             self.ctrl.report_3()
         if self.op1 == 4 and self.op2 == 4:
             self.ctrl.report_4()
+        if self.op1 == 5 and self.op2 == 1:
+            self.ctrl.rperson()
+        if self.op1 == 5 and self.op2 == 2:
+            self.ctrl.revent()

@@ -1,6 +1,7 @@
 from DOMAIN.person import *
 from DOMAIN.event import *
 from datetime import datetime
+from CONTROLLER.random_gen import *
 
 
 class InMemoryRepoPerson:
@@ -58,6 +59,9 @@ class InMemoryRepoPerson:
                 return p
         print('Nu s-a gasit nicio persoana cu acest id!')
 
+    def random_person_repo(self):
+        random_person(self)
+
     def get_all(self):
         '''
         Printeaza toata lista
@@ -82,6 +86,9 @@ class InMemoryRepoEvent:
         '''
         self.event_list.append(e)
         return self.event_list
+
+    def random_event_repo(self):
+        random_event(self)
 
     def stergere_event(self, id):
         '''
