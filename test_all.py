@@ -1,5 +1,7 @@
 from CONTROLLER.ctrl import *
 from REPOSITORY.repo import *
+from UI.console import *
+from UI.UI import *
 
 
 class Test_all:
@@ -83,3 +85,131 @@ class Test_all:
         repo2.store(e1)
         repo2.store(e2)
         assert ctrl.repoe.modificare_eveniment(1, '11.11.2022', 11, 'XD') == repo2.event_list
+
+    def test_adaugare_persoana_eveniment(self):
+        repo = InMemoryRepoPerson()
+        repo2 = InMemoryRepoEvent()
+        ctrl = Ctrl(repo, repo2)
+        e1 = Event('10.10.2022', 10, 'da')
+        e2 = Event('12.10.2022', 20, 'nu')
+        p1 = Person('Bogdan', 'Bucuresti')
+        p2 = Person('Andrei', 'Focsani')
+        repo.store(p1)
+        repo.store(p2)
+        repo2.store(e1)
+        repo2.store(e2)
+        ctrl.adaugare_persoana_eveniment(1, 1)
+        assert ctrl.adaugare_persoana_eveniment(1, 1) == repo2.event_list
+        Person.no_person = 0
+        Person.auto_id = 0
+        Event.no_event = 0
+        Event.auto_id = 0
+
+    def test_stergere_persoana(self):
+        repo = InMemoryRepoPerson()
+        repo2 = InMemoryRepoEvent()
+        ctrl = Ctrl(repo, repo2)
+        e1 = Event('10.10.2022', 10, 'da')
+        e2 = Event('12.10.2022', 20, 'nu')
+        p1 = Person('Bogdan', 'Bucuresti')
+        p2 = Person('Andrei', 'Focsani')
+        repo.store(p1)
+        repo.store(p2)
+        repo2.store(e1)
+        repo2.store(e2)
+        ctrl.stergere_persoana(1, 1)
+        assert ctrl.stergere_persoana(1, 1) == repo2.event_list
+        Person.no_person = 0
+        Person.auto_id = 0
+        Event.no_event = 0
+        Event.auto_id = 0
+
+    def test_cautare_persoana(self):
+        repo = InMemoryRepoPerson()
+        repo2 = InMemoryRepoEvent()
+        ctrl = Ctrl(repo, repo2)
+        p1 = Person('Bogdan', 'Bucuresti')
+        p2 = Person('Andrei', 'Focsani')
+        repo.store(p1)
+        repo.store(p2)
+        assert ctrl.cautare_persoana('Bogdan') == repo.person_list
+        Person.no_person = 0
+        Person.auto_id = 0
+
+    def test_modificare_eveniment(self):
+        repo = InMemoryRepoPerson()
+        repo2 = InMemoryRepoEvent()
+        ctrl = Ctrl(repo, repo2)
+        e1 = Event('10.10.2022', 10, 'da')
+        e2 = Event('12.10.2022', 20, 'nu')
+        repo2.store(e1)
+        repo2.store(e2)
+        assert ctrl.modificare_eveniment(1, '11.11.2022', 11, 'XD') == repo2.event_list
+        Event.no_event = 0
+        Event.auto_id = 0
+
+    def test_cautare_eveniment(self):
+        repo = InMemoryRepoPerson()
+        repo2 = InMemoryRepoEvent()
+        ctrl = Ctrl(repo, repo2)
+        e1 = Event('10.10.2022', 10, 'da')
+        e2 = Event('12.10.2022', 20, 'nu')
+        repo2.store(e1)
+        repo2.store(e2)
+        assert ctrl.cautare_eveniment('12.10.2022') == repo2.event_list
+        Event.no_event = 0
+        Event.auto_id = 0
+
+    def test_show_list(self):
+        repo = InMemoryRepoPerson()
+        repo2 = InMemoryRepoEvent()
+        ctrl = Ctrl(repo, repo2)
+        e1 = Event('10.10.2022', 10, 'da')
+        e2 = Event('12.10.2022', 20, 'nu')
+        p1 = Person('Bogdan', 'Bucuresti')
+        p2 = Person('Andrei', 'Focsani')
+        repo.store(p1)
+        repo.store(p2)
+        repo2.store(e1)
+        repo2.store(e2)
+        assert ctrl.show_list() == repo2.event_list
+        Person.no_person = 0
+        Person.auto_id = 0
+        Event.no_event = 0
+        Event.auto_id = 0
+
+    def test_verificare_data(self):
+        repo = InMemoryRepoPerson()
+        repo2 = InMemoryRepoEvent()
+        ctrl = Ctrl(repo, repo2)
+        e1 = Event('10.10.2022', 10, 'da')
+        e2 = Event('12.10.2022', 20, 'nu')
+        repo2.store(e1)
+        repo2.store(e2)
+        assert ctrl.verificare_data('10.10.2022') == True
+        Event.no_event = 0
+        Event.auto_id = 0
+
+    def test_rperson(self):
+        repo = InMemoryRepoPerson()
+        repo2 = InMemoryRepoEvent()
+        ctrl = Ctrl(repo, repo2)
+        p1 = Person('Bogdan', 'Bucuresti')
+        p2 = Person('Andrei', 'Focsani')
+        repo.store(p1)
+        repo.store(p2)
+        assert ctrl.rperson() == repo.person_list
+        Person.no_person = 0
+        Person.auto_id = 0
+
+    def test_revent(self):
+        repo = InMemoryRepoPerson()
+        repo2 = InMemoryRepoEvent()
+        ctrl = Ctrl(repo, repo2)
+        e1 = Event('10.10.2022', 10, 'da')
+        e2 = Event('12.10.2022', 20, 'nu')
+        repo2.store(e1)
+        repo2.store(e2)
+        assert ctrl.revent() == repo2.event_list
+        Event.no_event = 0
+        Event.auto_id = 0

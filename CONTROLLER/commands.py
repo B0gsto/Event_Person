@@ -32,7 +32,7 @@ class Commands:
             data = ''
             descriere = ''
             timp = 0
-            while data == '' or descriere == '' or timp == 0 or self.ctrl.verificare_data(data) == 0:
+            while data == '' or descriere == '' or timp == 0 or self.ctrl.verificare_data(data) == False:
 
                 data = str(input("Data eveniment: "))
                 try:
@@ -40,7 +40,7 @@ class Commands:
                 except:
                     pass
                 descriere = str(input("Descriere eveniment: "))
-                if data == '' or self.ctrl.verificare_data(data) == 0:
+                if data == '' or self.ctrl.verificare_data(data) == False:
                     print("Data invalid")
                 if descriere == '':
                     print("Descriere invalida")

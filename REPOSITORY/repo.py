@@ -132,7 +132,7 @@ class InMemoryRepoEvent:
 
     def adaugare_persoana_eveniment(self, person, event):
         '''
-
+        Adaugarea unei persoane la un eveniment
         :param person: clasa Person
         :param event:clasa Event
         :return:lista de persoana

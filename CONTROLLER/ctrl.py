@@ -83,27 +83,39 @@ class Ctrl:
         self.repoe.cautare_eveniment(id)
 
     def show_people(self):
+        '''
+        Afisarea persoanelor
+        :return:
+        '''
         self.repop.get_all()
 
     def show_list(self):
+        '''
+        Afisarea listei de persoane
+        :return:
+        '''
         self.repop.get_all_list()
 
     def adaugare_persoana_eveniment(self, idp, ide):
         '''
-
+                Adaugarea unei persoane la un eveniment
                 :param person: clasa Person
                 :param event:clasa Event
                 :return:lista de persoana
-                '''
-        person_list = self.repop.person_list
-        event_list = self.repoe.event_list
-        for p in person_list:
-            if p.id == idp:
-                person = p
-        for e in event_list:
-            if e.id == ide:
-                event = e
-        self.repoe.adaugare_persoana_eveniment(person, event)
+        '''
+        try:
+            person_list = self.repop.person_list
+            event_list = self.repoe.event_list
+            for p in person_list:
+                if p.id == idp:
+                    person = p
+            for e in event_list:
+                if e.id == ide:
+                    event = e
+            self.repoe.adaugare_persoana_eveniment(person, event)
+            return event_list.event_list
+        except Exception as e:
+            print('Eroare: ', e)
 
     def verificare_data(self, data):
         '''
@@ -121,9 +133,9 @@ class Ctrl:
                 return 0
             if int(a[2]) < 2000:
                 return 0
-            return 1
+            return True
         except:
-            return 0
+            return False
 
     def report_1(self):
         '''
