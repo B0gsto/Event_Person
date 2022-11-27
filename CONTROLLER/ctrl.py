@@ -156,7 +156,7 @@ class Ctrl:
                 Persoane participante la cele mai multe evenimente
                 :return: none
                 '''
-        self.repoe.report_3()
+        self.repop.report_3()
 
     def report_4(self):
         '''

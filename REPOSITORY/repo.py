@@ -73,6 +73,18 @@ class InMemoryRepoPerson:
     def get_all_list(self):
         pass
 
+    def report_3(self):
+        d = {}
+        maxi = -1
+        for p in self.person_list:
+            p: Person
+            if maxi < p.no_events:
+                maxi = p.no_events
+            d[p.id] = p.no_events
+        for k, v in d.items():
+            if v == maxi:
+                print(f'Persoana cu id-ul {k} are cele mai multe evenimente: {maxi}')
+
 
 class InMemoryRepoEvent:
     def __init__(self):
@@ -137,7 +149,9 @@ class InMemoryRepoEvent:
         :param event:clasa Event
         :return:lista de persoana
         '''
+        person: Person
         event.person_list.append(person)
+        person.no_events += 1
         return event.person_list
 
     def report_1(self):
@@ -167,21 +181,6 @@ class InMemoryRepoEvent:
         ordered_data = sorted(d.items(), key=lambda x: datetime.strptime(x[0], '%d.%m.%Y'))
         for i in ordered_data:
             print(str(i[1][1]))
-
-    def report_3(self):
-        '''
-        Persoane participante la cele mai multe evenimente
-        :return: none
-        '''
-        d = {}
-        for e in self.event_list:
-            e: Event
-            d[str(e)] = len(e.person_list)
-
-        max_keys = [key for key, value in d.items() if value == max(d.values())]
-        print()
-        for i in max_keys:
-            print(i)
 
     def report_4(self):
         '''
