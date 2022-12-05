@@ -104,6 +104,9 @@ class InMemoryRepoPerson:
             if v == 2:
                 print(f'Persoana cu id-ul {k} are 2 evenimente')
 
+    def getAll(self):
+        return self.person_list
+
 
 class InMemoryRepoEvent:
     def __init__(self):
@@ -251,4 +254,7 @@ class InMemoryRepoEvent:
         '''
         self.fisier = EventFileRepository(x)
         self.event_list = self.fisier.getAll()
+        return self.event_list
+
+    def getAll(self):
         return self.event_list
