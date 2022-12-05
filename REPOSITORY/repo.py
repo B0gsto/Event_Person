@@ -1,13 +1,18 @@
+import copy
+
 from DOMAIN.person import *
 from DOMAIN.event import *
 from datetime import datetime
 from CONTROLLER.random_gen import *
+from REPOSITORY.EventFileRepository import *
+from REPOSITORY.PersonFileRepository import *
 
 
 class InMemoryRepoPerson:
     def __init__(self) -> None:
         self.person_list = []
         self.list_list = []
+        self.fisier = PersonFileRepository("person.txt")
 
     def store(self, p):
         '''
@@ -28,7 +33,7 @@ class InMemoryRepoPerson:
         :return: lista persoanelor
         '''
         for p in self.person_list:
-            if p.id == id:
+            if int(p.id) == int(id):
                 self.person_list.remove(p)
         return self.person_list
 
@@ -70,8 +75,14 @@ class InMemoryRepoPerson:
         for x in self.person_list:
             print(x, end=" | ")
 
-    def get_all_list(self):
-        pass
+    def store_file(self, x):
+        self.fisier = PersonFileRepository(x)
+        self.fisier.store(self.person_list)
+
+    def load_file(self, x):
+        self.fisier = PersonFileRepository(x)
+        self.person_list = self.fisier.getAll()
+        return self.person_list
 
     def report_3(self):
         d = {}
@@ -85,9 +96,18 @@ class InMemoryRepoPerson:
             if v == maxi:
                 print(f'Persoana cu id-ul {k} are cele mai multe evenimente: {maxi}')
 
+    def report_5(self):
+        d = {}
+        for p in self.person_list:
+            d[p.id] = p.no_events
+        for k, v in d.items():
+            if v == 2:
+                print(f'Persoana cu id-ul {k} are 2 evenimente')
+
 
 class InMemoryRepoEvent:
     def __init__(self):
+        self.fisier = EventFileRepository('event.txt')
         self.event_list = []
 
     def store(self, e):
@@ -100,6 +120,10 @@ class InMemoryRepoEvent:
         return self.event_list
 
     def random_event_repo(self):
+        '''
+        Generarea de evenimente random
+        :return:
+        '''
         random_event(self)
 
     def stergere_event(self, id):
@@ -208,3 +232,23 @@ class InMemoryRepoEvent:
         '''
         for x in self.event_list:
             print(x, end=" | ")
+
+    def store_file(self, x):
+        '''
+        Salvarea in fisier
+        :param x:
+        :return:
+        '''
+        self.fisier = EventFileRepository(x)
+        self.fisier.store(self.event_list)
+        return self.event_list
+
+    def load_file(self, x):
+        '''
+        Incarcarea din fisier
+        :param x:
+        :return:
+        '''
+        self.fisier = EventFileRepository(x)
+        self.event_list = self.fisier.getAll()
+        return self.event_list

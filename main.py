@@ -33,4 +33,3 @@ while True:
     print()
     repoevent.get_all()
     print()
-    repoperson.get_all_list()

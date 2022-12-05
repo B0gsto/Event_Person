@@ -23,7 +23,8 @@ class Menu:
                "\n2--Căutare persoane, căutare evenimente " \
                "\n3--Înscriere persoană la eveniment." \
                "\n4--Rapoarte" \
-               "\n5--Random"
+               "\n5--Random" \
+               "\n6--Fisiere"
 
 
 class SubMenu:
@@ -56,10 +57,14 @@ class SubMenu:
                 return '1--Lista de evenimente la care participă o persoană ordonat după descriere\n' \
                        '2--Lista de evenimente la care participă o persoană ordonat după data\n' \
                        '3--Persoane participante la cele mai multe evenimente\n' \
-                       '4--Primele 20% evenimente cu cei mai mulți participanți (descriere, număr participanți)'
+                       '4--Primele 20% evenimente cu cei mai mulți participanți (descriere, număr participanți)\n' \
+                       '5--NEW_TASK: Persoanele care participa la 2 evenimente'
             elif self.optiune == 5:
                 return '1--Random person\n' \
                        '2--Random event'
+            elif self.optiune == 6:
+                return '1--Save to file\n' \
+                       '2--Load from file'
 
             else:
                 return 'Optiune invalida'

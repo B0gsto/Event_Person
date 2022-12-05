@@ -165,6 +165,13 @@ class Ctrl:
                '''
         self.repoe.report_4()
 
+    def report_5(self):
+        '''
+                Persoanele care participa la 2 evenimente
+        :return: None
+        '''
+        self.repop.report_5()
+
     def rperson(self):
         ok = 0
         while ok == 0:
@@ -188,3 +195,37 @@ class Ctrl:
                 ok = 0
         for i in range(no):
             self.repoe.random_event_repo()
+
+    def store_file(self):
+        '''
+        Salveaza in fisier
+        :return:
+        '''
+        y = input('Persoane sau evenimente?\n'
+                  '1.Persoane\n'
+                  '2.Evenimente\n')
+        if y == '1':
+            x = input('Numele fisierului: ')
+            self.repop.store_file(x)
+        elif y == '2':
+            x = input('Numele fisierului: ')
+            self.repoe.store_file(x)
+        else:
+            print('Optiune invalida')
+
+    def load_file(self):
+        '''
+        Incarcarea din fisier
+        :return:
+        '''
+        y = input('Persoane sau eveniment?\n'
+                  '1.Persoane\n'
+                  '2.Eveniment\n')
+        if y == '1':
+            x = input('Numele fisierului: ')
+            self.repop.load_file(x)
+        elif y == '2':
+            x = input('Numele fisierului: ')
+            self.repoe.load_file(x)
+        else:
+            print('Optiune invalida')

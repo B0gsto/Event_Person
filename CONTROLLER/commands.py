@@ -106,9 +106,12 @@ class Commands:
                     print('Optiune invalida')
             self.ctrl.cautare_eveniment(id)
         if self.op1 == 3:
-            idp = int(input('Id-ul persoanei adaugate: '))
-            ide = int(input('Id-ul evenimentului la care se adauga persoana: '))
-            self.ctrl.adaugare_persoana_eveniment(idp, ide)
+            try:
+                idp = int(input('Id-ul persoanei adaugate: '))
+                ide = int(input('Id-ul evenimentului la care se adauga persoana: '))
+                self.ctrl.adaugare_persoana_eveniment(idp, ide)
+            except:
+                print('Invalid')
         if self.op1 == 4 and self.op2 == 1:
             self.ctrl.report_1()
         if self.op1 == 4 and self.op2 == 2:
@@ -117,7 +120,13 @@ class Commands:
             self.ctrl.report_3()
         if self.op1 == 4 and self.op2 == 4:
             self.ctrl.report_4()
+        if self.op1 == 4 and self.op2 == 5:
+            self.ctrl.report_5()
         if self.op1 == 5 and self.op2 == 1:
             self.ctrl.rperson()
         if self.op1 == 5 and self.op2 == 2:
             self.ctrl.revent()
+        if self.op1 == 6 and self.op2 == 1:
+            self.ctrl.store_file()
+        if self.op1 == 6 and self.op2 == 2:
+            self.ctrl.load_file()
