@@ -1,6 +1,6 @@
 class Person:
     no_person = 0
-    auto_id = 0
+    auto_id = 1
 
     def __init__(self, nume, adresa) -> None:
         self.id = Person.auto_id

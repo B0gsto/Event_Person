@@ -64,8 +64,8 @@ class SubMenu:
                        '2--Random event'
             elif self.optiune == 6:
                 return '1--Save to file\n' \
-                       '2--Load from file'
-
+                       '2--Load from file\n' \
+                       '3--Save raport 3 to file\n'
             else:
                 return 'Optiune invalida'
         except:

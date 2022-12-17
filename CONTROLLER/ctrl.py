@@ -113,7 +113,7 @@ class Ctrl:
                 if e.id == ide:
                     event = e
             self.repoe.adaugare_persoana_eveniment(person, event)
-            return event_list.event_list
+            return event_list
         except Exception as e:
             print('Eroare: ', e)
 
@@ -160,12 +160,17 @@ class Ctrl:
 
     def report_4(self):
         '''
+                Persoanele care participa la 2 evenimente
+        :return:
+        '''
+        '''
                Primele 20% evenimente cu cei mai mulți participanți
                :return: None
                '''
         self.repoe.report_4()
 
     def report_5(self):
+
         '''
                 Persoanele care participa la 2 evenimente
         :return: None
@@ -173,6 +178,10 @@ class Ctrl:
         self.repop.report_5()
 
     def rperson(self):
+        '''
+        Citirea din fisier a persoanelor
+        :return:
+        '''
         ok = 0
         while ok == 0:
             try:
@@ -185,6 +194,10 @@ class Ctrl:
             self.repop.random_person_repo()
 
     def revent(self):
+        '''
+        Genereaza evenimente random
+        :return:
+        '''
         ok = 0
         while ok == 0:
             try:
@@ -229,3 +242,11 @@ class Ctrl:
             self.repoe.load_file(x)
         else:
             print('Optiune invalida')
+
+    def save_raport(self):
+        '''
+        Salvarea unui raport
+        :return:
+        '''
+        x = input('Numele fisierului: ')
+        self.repop.save_raport(x)

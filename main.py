@@ -19,7 +19,6 @@ ctrl = Ctrl(repoperson, repoevent)
 
 # Test
 test = Test_all()
-test.test_all()
 
 # Rularea programului
 while True:

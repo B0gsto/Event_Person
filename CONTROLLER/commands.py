@@ -130,3 +130,5 @@ class Commands:
             self.ctrl.store_file()
         if self.op1 == 6 and self.op2 == 2:
             self.ctrl.load_file()
+        if self.op1 == 6 and self.op2 == 3:
+            self.ctrl.save_raport()

@@ -213,3 +213,94 @@ class Test_all:
         assert ctrl.revent() == repo2.event_list
         Event.no_event = 0
         Event.auto_id = 0
+
+    def test_report_1(self):
+        repo = InMemoryRepoPerson()
+        repo2 = InMemoryRepoEvent()
+        ctrl = Ctrl(repo, repo2)
+        e1 = Event('10.10.2022', 10, 'da')
+        e2 = Event('12.10.2022', 20, 'nu')
+        p1 = Person('Bogdan', 'Bucuresti')
+        p2 = Person('Andrei', 'Focsani')
+        repo.store(p1)
+        repo.store(p2)
+        repo2.store(e1)
+        repo2.store(e2)
+        assert ctrl.report_1() == repo2.event_list
+        Person.no_person = 0
+        Person.auto_id = 0
+        Event.no_event = 0
+        Event.auto_id = 0
+
+    def test_report_2(self):
+        repo = InMemoryRepoPerson()
+        repo2 = InMemoryRepoEvent()
+        ctrl = Ctrl(repo, repo2)
+        e1 = Event('10.10.2022', 10, 'da')
+        e2 = Event('12.10.2022', 20, 'nu')
+        p1 = Person('Bogdan', 'Bucuresti')
+        p2 = Person('Andrei', 'Focsani')
+        repo.store(p1)
+        repo.store(p2)
+        repo2.store(e1)
+        repo2.store(e2)
+        assert ctrl.report_2() == repo2.event_list
+        Person.no_person = 0
+        Person.auto_id = 0
+        Event.no_event = 0
+        Event.auto_id = 0
+
+    def test_report_3(self):
+        repo = InMemoryRepoPerson()
+        repo2 = InMemoryRepoEvent()
+        ctrl = Ctrl(repo, repo2)
+        e1 = Event('10.10.2022', 10, 'da')
+        e2 = Event('12.10.2022', 20, 'nu')
+        p1 = Person('Bogdan', 'Bucuresti')
+        p2 = Person('Andrei', 'Focsani')
+        repo.store(p1)
+        repo.store(p2)
+        repo2.store(e1)
+        repo2.store(e2)
+        assert ctrl.report_3() == repo2.event_list
+        Person.no_person = 0
+        Person.auto_id = 0
+        Event.no_event = 0
+        Event.auto_id = 0
+
+    def test_report_4(self):
+        repo = InMemoryRepoPerson()
+        repo2 = InMemoryRepoEvent()
+        ctrl = Ctrl(repo, repo2)
+        e1 = Event('10.10.2022', 10, 'da')
+        e2 = Event('12.10.2022', 20, 'nu')
+        p1 = Person('Bogdan', 'Bucuresti')
+        p2 = Person('Andrei', 'Focsani')
+        repo.store(p1)
+        repo.store(p2)
+        repo2.store(e1)
+        repo2.store(e2)
+        assert ctrl.report_4() == repo2.event_list
+        Person.no_person = 0
+        Person.auto_id = 0
+        Event.no_event = 0
+        Event.auto_id = 0
+
+    def test_report_5(self):
+        repo = InMemoryRepoPerson()
+        repo2 = InMemoryRepoEvent()
+        ctrl = Ctrl(repo, repo2)
+        e1 = Event('10.10.2022', 10, 'da')
+        e2 = Event('12.10.2022', 20, 'nu')
+        p1 = Person('Bogdan', 'Bucuresti')
+        p2 = Person('Andrei', 'Focsani')
+        repo.store(p1)
+        repo.store(p2)
+        repo2.store(e1)
+        repo2.store(e2)
+        assert ctrl.report_5() == repo2.event_list
+        Person.no_person = 0
+        Person.auto_id = 0
+        Event.no_event = 0
+        Event.auto_id = 0
+
