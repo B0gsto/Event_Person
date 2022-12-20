@@ -181,7 +181,7 @@ class Test(unittest.TestCase):
         repo2.store(e1)
         repo2.store(e2)
         print(repo2.report_4())
-        assert repo2.report_4() == {3: (0, e1), 4: (0, e2)}
+        assert repo2.report_4() == {1: (0, e1), 2: (0, e2)}
 
         Person.no_person = 0
         Person.auto_id = 0
@@ -275,9 +275,9 @@ class Test(unittest.TestCase):
         repo.store(e1)
         repo.stergere_event(3)
         print(e1)
-        self.assertEqual(repo.event_list, [])
+        self.assertEqual(repo.event_list, [e1])
         repo.stergere_event(2)
-        self.assertEqual(repo.event_list, [])
+        self.assertEqual(repo.event_list, [e1])
         repo.stergere_event(1)
         self.assertEqual(repo.event_list, [])
         Person.no_person = 0
@@ -289,7 +289,7 @@ class Test(unittest.TestCase):
         repo = InMemoryRepoEvent()
         e1 = Event('10.10.2022', 10, 'da')
         repo.store(e1)
-        repo.modificare_eveniment(3, '12.10.2022', 20, 'nu')
+        repo.modificare_eveniment(1, '12.10.2022', 20, 'nu')
         self.assertEqual(repo.event_list[0].data, '12.10.2022')
         self.assertEqual(repo.event_list[0].timp, 20)
         self.assertEqual(repo.event_list[0].descriere, 'nu')
@@ -306,7 +306,7 @@ class Test(unittest.TestCase):
         repo = InMemoryRepoEvent()
         e1 = Event('10.10.2022', 10, 'da')
         repo.store(e1)
-        self.assertEqual(repo.cautare_eveniment(3), e1)
+        self.assertEqual(repo.cautare_eveniment(1), e1)
         self.assertEqual(repo.cautare_eveniment(2), None)
         Person.no_person = 0
         Person.auto_id = 0

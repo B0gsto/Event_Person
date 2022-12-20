@@ -104,14 +104,9 @@ class Ctrl:
                 :return:lista de persoana
         '''
         try:
-            person_list = self.repop.person_list
+            person = self.repop.cautare_persoana(idp)
+            event = self.repoe.cautare_eveniment(ide)
             event_list = self.repoe.event_list
-            for p in person_list:
-                if p.id == idp:
-                    person = p
-            for e in event_list:
-                if e.id == ide:
-                    event = e
             self.repoe.adaugare_persoana_eveniment(person, event)
             return event_list
         except Exception as e:
@@ -187,11 +182,11 @@ class Ctrl:
             try:
                 no = int(input('Numarul de generati: '))
                 ok = 1
+                for i in range(no):
+                    self.repop.random_person_repo()
             except:
                 print('Intrare invalida')
                 ok = 0
-        for i in range(no):
-            self.repop.random_person_repo()
 
     def revent(self):
         '''
@@ -203,11 +198,11 @@ class Ctrl:
             try:
                 no = int(input('Numarul de generati: '))
                 ok = 1
+                for i in range(no):
+                    self.repoe.random_event_repo()
             except:
                 print('Intrare invalida')
                 ok = 0
-        for i in range(no):
-            self.repoe.random_event_repo()
 
     def store_file(self):
         '''

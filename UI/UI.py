@@ -34,13 +34,14 @@ class SubMenu:
     def start(self):
 
         try:
+
             print(self)
             if Menu.is_Ok == 1:
                 optiune = int(input("Alege optiunea: "))
                 self.optiune = optiune
                 return optiune
         except:
-            print("Optiune invalida")
+            print("Submenu error")
             return "Optiune invalida"
 
     def __str__(self) -> str:
@@ -67,6 +68,7 @@ class SubMenu:
                        '2--Load from file\n' \
                        '3--Save raport 3 to file\n'
             else:
+                print(self.optiune)
                 return 'Optiune invalida'
         except:
             return "Optiune invalida"

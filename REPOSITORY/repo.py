@@ -64,7 +64,7 @@ class InMemoryRepoPerson:
                 p.adresa = str(adresa)
         return self.person_list
 
-    def cautare_persoana(self, id):
+    """def cautare_persoana(self, id):
         '''
         Cauta o persoana dupa id
         :param id: int
@@ -75,7 +75,25 @@ class InMemoryRepoPerson:
                 print('Persoana gasita:')
                 print(p)
                 return p
-        print('Nu s-a gasit nicio persoana cu acest id!')
+        print('Nu s-a gasit nicio persoana cu acest id!')"""
+
+    def cautare_persoana(self, id, p=0):
+        '''
+        Cauta o persoana dupa id
+        :param id: int
+        :return: clasa Person
+        '''
+        try:
+            if p > len(self.person_list):
+                print('Nu s-a gasit nicio persoana cu acest id!')
+                return
+            if id == self.person_list[p].id:
+                print('Persoana gasita:' + str(self.person_list[p]))
+                return self.person_list[p]
+            else:
+                self.cautare_persoana(id, p + 1)
+        except Exception as e:
+            print('Error: ' + str(e))
 
     def random_person_repo(self):
         '''
@@ -111,13 +129,14 @@ class InMemoryRepoPerson:
         self.person_list = self.fisier.getAll()
         return self.person_list
 
+    """    Varianta nerecursiva
     def report_3(self):
         '''
         Raport 3
         :return:
         '''
-        d = {}
         maxi = -1
+        d = {}
         for p in self.person_list:
             p: Person
             if maxi < p.no_events:
@@ -127,6 +146,23 @@ class InMemoryRepoPerson:
             if v == maxi:
                 print(f'Persoana cu id-ul {k} are cele mai multe evenimente: {maxi}')
         return d, maxi
+    """
+
+    def report_3(self, maxi=-1):
+        from CONTROLLER.utils import findMaxVal
+        '''
+        Raport 3
+        :return:
+        '''
+        d = {}
+        for p in self.person_list:
+            p: Person
+            d[p.id] = p.no_events
+        maxVal = findMaxVal(list(d.values()))
+        for k, v in d.items():
+            if v == maxVal:
+                print(f'Persoana cu id-ul {k} are cele mai multe evenimente: {maxVal}')
+        return d, maxVal
 
     def save_raport(self, x):
         '''
@@ -219,7 +255,7 @@ class InMemoryRepoEvent:
                 p.descriere = str(descriere)
         return self.event_list
 
-    def cautare_eveniment(self, id):
+    """def cautare_eveniment(self, id):
         '''
         Cautarea unui eveniment dupa id
         :param id: int
@@ -230,7 +266,20 @@ class InMemoryRepoEvent:
                 print('Evenimentul gasit:')
                 print(e)
                 return e
-        print('Nu s-a gasit niciun eveniment cu acest id!')
+        print('Nu s-a gasit niciun eveniment cu acest id!')"""
+
+    def cautare_eveniment(self, id, p=0):
+        try:
+            if p > len(self.event_list):
+                print('Nu s-a gasit niciun eveniment cu acest id!')
+                return
+            if id == self.event_list[p].id:
+                print('Evenimentul gasit:' + str(self.event_list[p]))
+                return self.event_list[p]
+            else:
+                self.cautare_eveniment(id, p + 1)
+        except Exception as e:
+            print('Error: ' + str(e))
 
     def adaugare_persoana_eveniment(self, person, event):
         '''

@@ -20,8 +20,9 @@ ctrl = Ctrl(repoperson, repoevent)
 # Test
 test = Test_all()
 
+
 # Rularea programului
-while True:
+def run():
     con = Console(ctrl, menu, submenu)
     con.start()
     commands = Commands(ctrl, con.optiunea1, con.optiunea2)
@@ -32,3 +33,7 @@ while True:
     print()
     repoevent.get_all()
     print()
+    run()
+
+
+run()

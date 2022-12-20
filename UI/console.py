@@ -17,7 +17,8 @@ class Console:
         '''
 
         op1 = self.menu.start()
-        self.optiunea1 = op1
         self.submenu.optiune = op1
+        self.optiunea1 = op1
         op2 = self.submenu.start()
         self.optiunea2 = op2
+

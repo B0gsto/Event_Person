@@ -1,6 +1,6 @@
 class Event:
     no_event = 0
-    auto_id = 0
+    auto_id = 1
 
     def __init__(self, data, timp, descriere):
         self.id = Event.auto_id

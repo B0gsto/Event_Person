@@ -116,7 +116,7 @@ class Test(unittest.TestCase):
 
     def test_white_box_testing_cautare_event(self):
         self.__ctrl.add_event("12.12.2020", "12", "Eveniment")
-        self.__ctrl.cautare_eveniment(1)
+        self.__ctrl.cautare_eveniment(0)
         self.assertEqual(len(self.__ctrl.repoe.getAll()), 1)
         self.__ctrl.cautare_eveniment(2)
         self.assertEqual(len(self.__ctrl.repoe.getAll()), 1)
